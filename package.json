@@ -1,0 +1,40 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "A CRUD application in seconds",
+  "main": "server.js",
+  "dependencies": {
+    "clean-css": "^4.1.9",
+    "connect-busboy": "0.0.2",
+    "connect-redis": "^3.1.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "express-session": "^1.7.6",
+    "mime": "^2.0.3",
+    "mongodb": "^2.2.16",
+    "redis": "^2.6.3",
+    "request": "^2.72.0",
+    "uglify-es": "^3.3.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efossas/CRUD.git"
+  },
+  "keywords": [
+    "crud",
+    "kubernetes",
+    "docker",
+    "mongo",
+    "nodejs"
+  ],
+  "author": "Eric Fossas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/efossas/CRUD/issues"
+  },
+  "homepage": "https://github.com/efossas/CRUD#readme"
+}

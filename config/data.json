@@ -1,0 +1,18 @@
+{
+  "/path": 
+  {
+    "_collection": "data",
+    "_inputs": 
+    {
+      "text": 
+      {
+        "placeholder": "Enter some text"
+      },
+      "number":
+      {
+        "type": "number"
+        "placeholder": "Enter a number"
+      }
+    }
+  }
+}
