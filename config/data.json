@@ -10,7 +10,7 @@
       },
       "number":
       {
-        "type": "number"
+        "type": "number",
         "placeholder": "Enter a number"
       }
     }

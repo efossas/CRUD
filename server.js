@@ -26,17 +26,15 @@ app.disable('x-powered-by');
 app.use(busboy({}));
 
 /* enable Mongo */
-const muser = encodeURIComponent("admin");
-const mpassword = encodeURIComponent("default");
-const mhost = "localhost";
+const mhost = "mongo";
 const mdatabase = "db";
 const authMechanism = 'DEFAULT';
 
-const mongourl = f('mongodb://%s:%s@%s/%s?authMechanism=%s',muser,mpassword,mhost,mdatabase,authMechanism);
+const mongourl = f('mongodb://%s/%s?authMechanism=%s',muser,mpassword,mhost,mdatabase,authMechanism);
 
 MongoClient.connect(mongourl,function(err,db) {
 	if(err) {
-		console.error('Mongo db connection error: ' + err + '\n');
+		console.error(err + '\n');
 		process.exit();
 	} else {
 		app.set("db",db);
@@ -62,7 +60,7 @@ if(sessionStore !== null) {
 		store: sessionStore
 	}));
 } else {
-  console.error('Error createing Redis session store\n');
+  console.error('Error creating Redis session store\n');
   process.exit();
 }
 
@@ -76,7 +74,7 @@ fs.readFile('/config/data.json', {encoding: 'utf-8'}, function(err, data) {
     const config = JSON.parse(data);
     
     for (let path in config) {
-      app.post(path,route);
+      app.post(path,route.route);
       app.set(path,config[path]);
     }
     

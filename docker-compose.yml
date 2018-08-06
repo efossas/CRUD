@@ -1,56 +1,57 @@
 version: '3.6'
 
-network:
+networks:
   proxy:
   internal:
 
 services:
   traefik:
-    image: "traefik:alpine"
-    container_name: "traefik"
+    image: 'traefik:alpine'
+    container_name: 'traefik'
     ports:
       - 80:80
       - 443:443
       - 8080:8080
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./traefik.toml:/traefik.toml"
-      - "./acme.json:/acme.json"
-    label:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik.toml:/traefik.toml
+      - ./acme.json:/acme.json
+    labels:
       - traefik.frontend.rule=Host:monitor.example.com
       - traefik.port=8080
-    network:
+    networks:
       proxy:
   crud:
-    image: "efossas/crud"
-    container_name: "crud"
-    label:
+    image: 'efossas/crud'
+    container_name: 'crud'
+    volumes:
+      - ./config:/config
+    labels:
       - traefik.frontend.rule=Host:localhost
       - traefik.docker.network=proxy
       - traefik.port=443
-    network:
+    networks:
       proxy:
+      internal:
     depends_on:
       - mongo
       - redis
   mongo:
-    image: "mongo:xenial"
-    container_name: "mongo"
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: default
-      MONGO_INITDB_DATABASE: db
-    label:
+    image: 'mongo:xenial'
+    container_name: 'mongo'
+    labels:
       - traefik.enable=false
       - traefik.docker.network=proxy
-    network:
+    networks:
       proxy:
+      internal:
   redis:
-    image: "redis:alpine"
-    container_name: "redis"
-    label:
+    image: 'redis:alpine'
+    container_name: 'redis'
+    labels:
       - traefik.enable=false
       - traefik.docker.network=proxy
-    network:
+    networks:
       proxy:
+      internal:
     
