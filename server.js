@@ -30,7 +30,7 @@ const mhost = "mongo";
 const mdatabase = "db";
 const authMechanism = 'DEFAULT';
 
-const mongourl = f('mongodb://%s/%s?authMechanism=%s',muser,mpassword,mhost,mdatabase,authMechanism);
+const mongourl = f('mongodb://%s/%s?authMechanism=%s',mhost,mdatabase,authMechanism);
 
 MongoClient.connect(mongourl,function(err,db) {
 	if(err) {

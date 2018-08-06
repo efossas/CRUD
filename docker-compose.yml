@@ -23,6 +23,7 @@ services:
       proxy:
   crud:
     image: 'efossas/crud'
+    build: './'
     container_name: 'crud'
     volumes:
       - ./config:/config

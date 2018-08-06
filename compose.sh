@@ -1,3 +1,4 @@
 #!/bin/sh
 
-docker-compose up -d --no-build
+
+docker-compose -p crud up -d
