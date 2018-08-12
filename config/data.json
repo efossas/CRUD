@@ -1,18 +1,113 @@
 {
   "/path": 
   {
-    "_collection": "data",
-    "_inputs": 
+    "zero":
     {
-      "text": 
-      {
-        "placeholder": "Enter some text"
-      },
-      "number":
-      {
-        "type": "number",
-        "placeholder": "Enter a number"
-      }
+      "placeholder": "Default to text",
+      "value": "",
+      "min": 4,
+      "max": 8
+    },
+    "one": 
+    {
+      "type": "text",
+      "placeholder": "Explicit set to text",
+      "value": "",
+      "min": 4,
+      "max": 8,
+      "pattern": "[a-z]*",
+      "required": true
+    },
+    "two":
+    {
+      "type": "secret",
+      "placeholder": "Secret text",
+      "value": "",
+      "min": 4,
+      "max": 8
+    },
+    "three (hidden)":
+    {
+      "type": "hidden",
+      "placeholder": "Hidden text",
+      "value": "hidden value",
+      "min": 4,
+      "max": 8
+    },
+    "four":
+    {
+      "type": "number",
+      "placeholder": "Number",
+      "value": "",
+      "min": -100,
+      "max": 100
+    },
+    "five":
+    {
+      "type": "month",
+      "value": "",
+      "min": "2018-01-01",
+      "max": "2020-01-01"
+    },
+    "six":
+    {
+      "type": "week",
+      "value": "",
+      "min": "2018-01-01",
+      "max": "2020-01-01"
+    },
+    "seven":
+    {
+      "type": "date",
+      "value": "",
+      "min": "2018-01-01",
+      "max": "2020-01-01"
+    },
+    "eight":
+    {
+      "type": "time",
+      "value": "",
+      "min": "2018-01-01",
+      "max": "2020-01-01"
+    },
+    "nine":
+    {
+      "type": "single",
+      "options": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "ten":
+    {
+      "type": "multiple",
+      "options": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "eleven":
+    {
+      "type": "textlist",
+      "placeholder": "Text with dropdown list",
+      "options": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "twelve":
+    {
+      "type": "bad"
     }
   }
 }
+
+
+
+
+
+
+

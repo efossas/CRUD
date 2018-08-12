@@ -4,14 +4,17 @@
   "description": "A CRUD application in seconds",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "clean-css": "^4.1.9",
     "connect-busboy": "0.0.2",
     "connect-redis": "^3.1.0",
     "cookie-parser": "^1.4.3",
+    "ejs": "^2.6.1",
     "express": "^4.13.4",
     "express-session": "^1.7.6",
     "mime": "^2.0.3",
     "mongodb": "^2.2.16",
+    "morgan": "^1.9.0",
     "redis": "^2.6.3",
     "request": "^2.72.0",
     "uglify-es": "^3.3.9"

@@ -16,4 +16,3 @@ rm ./ssl/crud.pass.key
 
 openssl req -new -key ./ssl/crud.key -out ./ssl/crud.csr -subj "/CN=$DOMAIN"
 openssl x509 -req -days 3650 -in ./ssl/crud.csr -signkey ./ssl/crud.key -out ./ssl/crud.crt
-

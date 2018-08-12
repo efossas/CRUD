@@ -1,54 +1,38 @@
-defaultEntryPoints = ["http", "https"]
+# logs
+logLevel = "DEBUG"
 
-# traefik web console, password created with: htpasswd -nbB admin default
-[web]
-address = ":8080"
-  [web.auth.basic]
-  users = ["admin:$2y$05$5lDlnFzA6TbdzLNd8fY8MOgR3TJwVOZIatEfxvXEj1o6cvvDgfU62"]
+[traefikLog]
+
+[accessLog]
+  [accessLog.filters]
+    statusCodes = ["0-600"]
 
 # entry points
 [entryPoints]
   [entryPoints.http]
-  address = ":80"
-    [entryPoints.http.redirect]
-      entryPoint = "https"
+    address = ":80"
+  
   [entryPoints.https]
-  address = ":443"
-    [entryPoints.https.tls]
+    address = ":443"
+  
+  [entryPoints.https.tls]
+    [[entryPoints.https.tls.certificates]]
+      certFile = "/ssl/crud.crt"
+      keyFile = "/ssl/crud.key"
+  
+  # traefik web console, password created with: htpasswd -nbB admin default
+  [entryPoints.traefik]
+   address=":8080"
+   [entryPoints.traefik.auth]
+     [entryPoints.traefik.auth.basic]
+       users = ["admin:$2y$05$5lDlnFzA6TbdzLNd8fY8MOgR3TJwVOZIatEfxvXEj1o6cvvDgfU62"]
 
-# let's encrypt https ssl certs
-# [acme]
-# email = "your_email@example.com"
-# storage = "acme.json"
-# entryPoint = "https"
-# onHostRule = true
-# onDemand = false
+# gui
+[api]
+entrypoint="traefik"
 
-# Enable Docker Provider.
+# docker
 [docker]
-
-# Docker server endpoint. Can be a tcp or a unix socket endpoint.
-#
-# Required
-#
-endpoint = "unix:///var/run/docker.sock"
-
-# Default domain used.
-# Can be overridden by setting the "traefik.domain" label on a container.
-#
-# Required
-#
-domain = "localhost"
-
-# Enable watch docker changes.
-#
-# Optional
-#
 watch = true
-
-[docker.tls]
-ca = "/etc/ssl/ca.crt"
-cert = "/etc/ssl/docker.crt"
-key = "/etc/ssl/docker.key"
-insecureSkipVerify = true
-
+exposedbydefault = false
+domain = "docker.localhost"

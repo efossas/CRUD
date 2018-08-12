@@ -1,0 +1,78 @@
+input, select, button {
+  border-radius: 4px;
+  display: block;
+  font-size: 1.2em;
+	height: 30px;
+	padding: 0px 3px;
+	width: 100%;
+}
+
+input:invalid, select:invalid {
+  border: 2px dashed red;
+}
+
+input:valid, select:valid {
+  border: 2px solid black;
+}
+
+input[readonly] {
+  border: 2px solid grey !important;
+}
+
+input[readonly] {
+  border: 2px solid black;
+  color: grey;
+}
+
+label {
+  border-radius: 4px;
+  display: block;
+  font-size: 1.6em;
+	height: 20px;
+	margin-top: 10px;
+	padding: 3px;
+	width: 100%;
+}
+
+select[multiple] {
+  border-radius: 4px;
+  display: block;
+  font-size: 1.2em;
+	height: 130px;
+	padding: 0px 3px;
+	width: 100%;
+}
+
+a {
+  border: 1px solid black;
+  box-sizing: border-box;
+  display: block;
+  font-size: 1.6em;
+	height: 44px;
+	margin: 0px;
+	line-height: 30px;
+	padding: 6px 12px;
+	width: 100%;
+}
+
+a:hover {
+  background-color: aqua;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  margin: 0px;
+  list-style: none;
+  padding: 0px;
+}
+
+p {
+  font-size: 1.4em;
+}
+
+footer, .footer {
+  padding: 40px 0;
+}
