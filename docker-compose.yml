@@ -3,6 +3,10 @@ version: '3'
 networks:
   proxy:
 
+volumes:
+  db-mongo:
+  cache-redis:
+
 services:
   traefik:
     image: 'traefik:alpine'
@@ -47,6 +51,8 @@ services:
   mongo:
     image: 'mongo:xenial'
     container_name: 'mongo'
+    volumes:
+      - db-mongo:/data/db
     labels:
       - traefik.enable=false
     networks:
@@ -54,6 +60,8 @@ services:
   redis:
     image: 'redis:alpine'
     container_name: 'redis'
+    volumes:
+      - cache-redis:/data
     labels:
       - traefik.enable=false
     networks:
